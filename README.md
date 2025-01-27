@@ -49,7 +49,8 @@ A simple MERN stack application for creating and displaying projects to showcase
 
    - Create a `.env` file in the `backend` directory. Add the following:
      ```env
-     MONGO_URI=<your_mongodb_connection_string>
+     DATABASE=<your_mongodb_connection_string> **replace your password with <PASSWORD>**
+     DATABASE_PASSWORD=<your_password>
      PORT=5000
      ```
 
