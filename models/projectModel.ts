@@ -37,4 +37,4 @@ const ProjectSchema = new Schema({
 });
 const Project = model<ProjectType>("Project", ProjectSchema);
 
-module.exports = Project;
+export default Project;
