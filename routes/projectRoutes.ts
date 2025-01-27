@@ -6,6 +6,13 @@ const projectRouter = express.Router();
 projectRouter
   .route("/")
   .get(projectController.getAllProjects)
-  .post(projectController.createProject);
+  .post(projectController.uploadProjectImages, projectController.createProject);
+
+projectRouter
+  .route("/:id")
+  .patch(
+    projectController.uploadProjectImages,
+    projectController.updateProject
+  );
 
 module.exports = projectRouter;
