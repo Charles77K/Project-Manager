@@ -6,7 +6,7 @@ interface ProjectType extends Document {
   description: string;
   git: string;
   stack: string[];
-  link: string[];
+  link: string;
   developers: {
     name: string;
     github: string;

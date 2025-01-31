@@ -1,54 +1,26 @@
 import Project from "../models/projectModel";
-import { Request, Response } from "express";
-import multer from "multer";
-import path from "path";
+import { NextFunction, Request, Response } from "express";
 import { catchAsync } from "../utils/catchAsync";
 import { AppError } from "../utils/AppError";
+import { upload } from "../utils/multer";
+import APIFeatures from "../utils/apiFeatures";
 
-const storage = multer.diskStorage({
-  destination: (
-    req: Request,
-    file: Express.Multer.File,
-    cb: (error: Error | null, destination: string) => void
-  ) => {
-    cb(null, path.join(__dirname, "../public/projects"));
-  },
-  filename: (
-    req: Request,
-    file: Express.Multer.File,
-    cb: (error: Error | null, filename: string) => void
-  ) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  },
-});
-
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 5 * 1024 * 1024 },
-  fileFilter: (
-    req: Request,
-    file: Express.Multer.File,
-    cb: multer.FileFilterCallback
-  ) => {
-    const fileTypes = /jpeg|jpg|png|gif/;
-    const mineType = fileTypes.test(file.mimetype);
-    const extName = fileTypes.test(
-      path.extname(file.originalname).toLowerCase()
-    );
-
-    if (mineType && extName) {
-      return cb(null, true);
-    }
-    cb(new Error("Only image files are allowed!"));
-  },
-});
-
-export const uploadProjectImages = upload.array("images", 5);
+export const uploadProjectImages = upload("../public/projects").array(
+  "images",
+  5
+);
 
 //Get all projects
 export const getAllProjects = catchAsync(
   async (req: Request, res: Response) => {
-    const projects = await Project.find();
+    const features = new APIFeatures(Project.find(), req.query)
+      .filter()
+      .sort()
+      .paginate()
+      .limitFields();
+
+    const projects = await features.query;
+
     res.status(200).json({
       message: "All Projects",
       status: "success",
@@ -118,3 +90,36 @@ export const updateProject = catchAsync(async (req: Request, res: Response) => {
     project: updatedProject,
   });
 });
+
+export const getSingleProject = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+    const project = await Project.findById(id);
+
+    if (!id) {
+      return next(new AppError("Project not found", 404));
+    }
+
+    res.status(200).json({
+      message: "Project fetched successfully",
+      status: "success",
+      project,
+    });
+  }
+);
+
+export const deleteProject = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+    const project = await Project.findByIdAndDelete(id);
+
+    if (!project) {
+      return next(new AppError("Project not found", 404));
+    }
+
+    res.status(204).json({
+      message: "Project deleted successfully",
+      status: "success",
+    });
+  }
+);

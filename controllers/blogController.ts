@@ -1,53 +1,20 @@
-import path from "path";
 import Blog from "../models/blogModel";
-import multer from "multer";
-import { Response, Request } from "express";
+import { Response, Request, NextFunction } from "express";
 import { catchAsync } from "../utils/catchAsync";
 import { AppError } from "../utils/AppError";
+import { upload } from "../utils/multer";
+import APIFeatures from "../utils/apiFeatures";
 
-const storage = multer.diskStorage({
-  destination: (
-    req: Request,
-    file: Express.Multer.File,
-    cb: (error: Error | null, destination: string) => void
-  ) => {
-    cb(null, path.join(__dirname, "../public/blogs"));
-  },
-  filename: (
-    req: Request,
-    file: Express.Multer.File,
-    cb: (error: Error | null, filename: string) => void
-  ) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  },
-});
-
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 5 * 1024 * 1024 },
-  fileFilter: (
-    req: Request,
-    file: Express.Multer.File,
-    cb: multer.FileFilterCallback
-  ) => {
-    const fileTypes = /jpeg|jpg|png|gif/;
-    const mimeType = fileTypes.test(file.mimetype);
-    const extName = fileTypes.test(
-      path.extname(file.originalname).toLowerCase()
-    );
-
-    if (mimeType && extName) {
-      return cb(null, true);
-    }
-    cb(new Error("Only image files are allowed!"));
-  },
-});
-
-export const uploadBlogImage = upload.single("photo");
+export const uploadBlogImage = upload("../public/blogs").single("photo");
 
 export const getAllBlogs = catchAsync(
   async (req: Request, res: Response): Promise<void> => {
-    const blogs = await Blog.find();
+    const features = new APIFeatures(Blog.find(), req.query)
+      .filter()
+      .paginate()
+      .limitFields()
+      .sort();
+    const blogs = await features.query;
 
     res.status(200).json({
       message: "All Blogs",
@@ -107,3 +74,36 @@ export const updateBlog = catchAsync(async (req: Request, res: Response) => {
     blog: updatedBlog,
   });
 });
+
+export const getSingleBlog = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+    const blog = await Blog.findById(id);
+
+    if (!blog) {
+      return next(new AppError("Blog not found", 404));
+    }
+
+    res.status(200).json({
+      message: "Blog fetched successfully",
+      status: "success",
+      blog,
+    });
+  }
+);
+
+export const deleteBlog = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const { id } = req.params;
+    const blog = await Blog.findByIdAndDelete(id);
+
+    if (!blog) {
+      return next(new AppError("Blog not found", 404));
+    }
+
+    res.status(204).json({
+      message: "Blog deleted successfully",
+      status: "success",
+    });
+  }
+);

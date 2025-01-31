@@ -4,6 +4,8 @@ import {
   getAllProjects,
   updateProject,
   uploadProjectImages,
+  getSingleProject,
+  deleteProject,
 } from "../controllers/projectController";
 
 const projectRouter = express.Router();
@@ -13,6 +15,10 @@ projectRouter
   .get(getAllProjects)
   .post(uploadProjectImages, createProject);
 
-projectRouter.route("/:id").patch(uploadProjectImages, updateProject);
+projectRouter
+  .route("/:id")
+  .patch(uploadProjectImages, updateProject)
+  .get(getSingleProject)
+  .delete(deleteProject);
 
 export default projectRouter;
