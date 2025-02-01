@@ -2,10 +2,11 @@ import Blog from "../models/blogModel";
 import { Response, Request, NextFunction } from "express";
 import { catchAsync } from "../utils/catchAsync";
 import { AppError } from "../utils/AppError";
-import { upload } from "../utils/multer";
+import { upload, uploadToCloudinary } from "../utils/multer";
 import APIFeatures from "../utils/apiFeatures";
 
-export const uploadBlogImage = upload("../public/blogs").single("photo");
+// Middleware for handling image uploads
+export const uploadBlogImage = upload().single("photo");
 
 export const getAllBlogs = catchAsync(
   async (req: Request, res: Response): Promise<void> => {
@@ -27,14 +28,19 @@ export const getAllBlogs = catchAsync(
 
 export const createBlog = catchAsync(async (req: Request, res: Response) => {
   const { title, content, author } = req.body;
+  let imageUrl = null;
 
-  const uploadedPhoto = req.file?.filename;
+  // Upload image to Cloudinary if a file was provided
+  if (req.file) {
+    const uploadResult = await uploadToCloudinary(req.file);
+    imageUrl = uploadResult.secure_url;
+  }
 
   const blog = new Blog({
     title,
     content,
     author,
-    photo: uploadedPhoto,
+    photo: imageUrl,
   });
 
   const savedBlog = await blog.save();
@@ -53,18 +59,20 @@ export const updateBlog = catchAsync(async (req: Request, res: Response) => {
   const blog = await Blog.findById(id);
 
   if (!blog) {
-    throw new AppError("blog not found", 404);
+    throw new AppError("Blog not found", 404);
   }
 
-  let updatedImage = blog.photo;
+  // Handle image update if new file is provided
+  let updatedImageUrl = blog.photo;
   if (req.file) {
-    updatedImage = req.file.filename;
+    const uploadResult = await uploadToCloudinary(req.file);
+    updatedImageUrl = uploadResult.secure_url;
   }
 
   blog.title = title || blog.title;
   blog.content = content || blog.content;
   blog.author = author || blog.author;
-  blog.photo = updatedImage || blog.photo;
+  blog.photo = updatedImageUrl;
 
   const updatedBlog = await blog.save();
 
