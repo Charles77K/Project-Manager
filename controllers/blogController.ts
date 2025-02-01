@@ -30,7 +30,6 @@ export const createBlog = catchAsync(async (req: Request, res: Response) => {
   const { title, content, author } = req.body;
   let imageUrl = null;
 
-  // Upload image to Cloudinary if a file was provided
   if (req.file) {
     const uploadResult = await uploadToCloudinary(req.file);
     imageUrl = uploadResult.secure_url;
