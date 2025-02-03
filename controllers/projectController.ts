@@ -68,7 +68,7 @@ export const createProject = catchAsync(async (req: Request, res: Response) => {
 // Update Project
 export const updateProject = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { title, description, git, stack, link, developers, type } = req.body;
+  const { title, description, git, link, developers, type } = req.body;
 
   const project = await Project.findById(id);
 
@@ -86,7 +86,6 @@ export const updateProject = catchAsync(async (req: Request, res: Response) => {
   project.title = title || project.title;
   project.description = description || project.description;
   project.git = git || project.git;
-  project.stack = stack || project.stack;
   project.link = link || project.link;
   project.type = type || project.type;
   project.images = updatedImageUrls;
