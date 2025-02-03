@@ -32,6 +32,7 @@ const ProjectSchema = new Schema({
       stack: [{ type: String }],
       email: { type: String, required: true },
       link: { type: String, required: true },
+      role: { type: String, required: true },
     },
   ],
   createdAt: { type: Date, default: Date.now },
