@@ -7,12 +7,13 @@ interface ProjectType extends Document {
   git: string;
   stack: string[];
   link: string;
+  type: "mobile" | "web";
   developers: {
     name: string;
     github: string;
     email: string;
     link: string;
-    image: string;
+    role: string;
   }[];
   createdAt: Date;
 }
@@ -24,6 +25,7 @@ const ProjectSchema = new Schema({
   git: { type: String, required: true },
   stack: [{ type: String }],
   link: [{ type: String }],
+  type: [{ type: String }],
   developers: [
     {
       name: { type: String, required: true },

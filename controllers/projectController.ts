@@ -39,7 +39,7 @@ export const getAllProjects = catchAsync(
 
 // Create Project
 export const createProject = catchAsync(async (req: Request, res: Response) => {
-  const { title, description, git, stack, link, developers } = req.body;
+  const { title, description, git, stack, link, developers, type } = req.body;
 
   const imageUrls = req.files
     ? await handleMultipleUploads(req.files as Express.Multer.File[])
@@ -52,6 +52,7 @@ export const createProject = catchAsync(async (req: Request, res: Response) => {
     git,
     stack,
     link,
+    type,
     developers,
   });
 
@@ -67,7 +68,7 @@ export const createProject = catchAsync(async (req: Request, res: Response) => {
 // Update Project
 export const updateProject = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { title, description, git, stack, link, developers } = req.body;
+  const { title, description, git, stack, link, developers, type } = req.body;
 
   const project = await Project.findById(id);
 
@@ -87,6 +88,7 @@ export const updateProject = catchAsync(async (req: Request, res: Response) => {
   project.git = git || project.git;
   project.stack = stack || project.stack;
   project.link = link || project.link;
+  project.type = type || project.type;
   project.images = updatedImageUrls;
   project.developers = developers || project.developers;
 
