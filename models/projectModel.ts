@@ -25,7 +25,7 @@ const ProjectSchema = new Schema({
   git: { type: String, required: true },
   stack: [{ type: String }],
   link: [{ type: String }],
-  type: [{ type: String }],
+  type: { type: String },
   developers: [
     {
       name: { type: String, required: true },
