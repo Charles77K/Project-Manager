@@ -19,7 +19,7 @@ export const createMessage = catchAsync(
     const newMessage = await Message.create(parsedMessage.data);
 
     await sendEmail(
-      newMessage.email,
+      `"${newMessage.name} <${process.env.EMAIL_USER!}>"`,
       process.env.EMAIL_USER!,
       `New Message from ${newMessage.name}`,
       `You received a message from:\n\nName: ${newMessage.name}\nEmail: ${newMessage.email}\n\nMessage:\n${newMessage.message}`
