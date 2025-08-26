@@ -1,4 +1,4 @@
-import Project from "../models/projectModel";
+import Project, { ProjectType } from "../models/projectModel";
 import { NextFunction, Request, Response } from "express";
 import { catchAsync } from "../utils/catchAsync";
 import { AppError } from "../utils/AppError";
@@ -39,21 +39,13 @@ export const getAllProjects = catchAsync(
 
 // Create Project
 export const createProject = catchAsync(async (req: Request, res: Response) => {
-  const { title, description, git, stack, link, developers, type } = req.body;
-
   const imageUrls = req.files
     ? await handleMultipleUploads(req.files as Express.Multer.File[])
     : [];
 
   const newProject = new Project({
-    title,
+    ...req.body,
     images: imageUrls,
-    description,
-    git,
-    stack,
-    link,
-    type,
-    developers,
   });
 
   const savedProject = await newProject.save();
@@ -68,31 +60,23 @@ export const createProject = catchAsync(async (req: Request, res: Response) => {
 // Update Project
 export const updateProject = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { title, description, git, link, developers, type } = req.body;
 
-  const project = await Project.findById(id);
+  const updateData: Partial<ProjectType> = { ...req.body };
 
-  if (!project) {
-    throw new AppError("Project not found", 404);
-  }
-
-  let updatedImageUrls = project.images;
   if (req.files && (req.files as Express.Multer.File[]).length > 0) {
-    updatedImageUrls = await handleMultipleUploads(
+    updateData.images = await handleMultipleUploads(
       req.files as Express.Multer.File[]
     );
   }
 
-  project.title = title || project.title;
-  project.description = description || project.description;
-  project.git = git || project.git;
-  project.link = link || project.link;
-  project.type = type || project.type;
-  project.images = updatedImageUrls;
-  project.developers = developers || project.developers;
+  const updatedProject = await Project.findByIdAndUpdate(id, updateData, {
+    new: true,
+    runValidators: true,
+  });
 
-  const updatedProject = await project.save();
-
+  if (!updatedProject) {
+    throw new AppError("Project not found", 404);
+  }
   res.status(200).json({
     message: "Project updated successfully",
     status: "success",

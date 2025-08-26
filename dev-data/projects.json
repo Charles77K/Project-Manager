@@ -1,0 +1,323 @@
+[
+  {
+    "title": "The Joshua Olaiya Show (JOS)",
+    "subtitle": "Africa’s #1 Tech Podcast on Robotics, AI, Aerospace, and Innovation",
+    "images": [
+      "../public/jos.png",
+      "../public/jos1.png",
+      "../public/jos2.png",
+      "../public/jos3.png",
+      "../public/jos4.png"
+    ],
+    "shortDescription": "The Joshua Olaiya Show is Africa’s biggest tech podcast, exploring robotics, AI, aerospace, and innovation with leaders from NASA, Tesla, NVIDIA, and more.",
+    "longDescription": "The Joshua Olaiya Show (JOS) is a space where we explore robotics, AI, aerospace, and tech with industry leaders and engineers from NASA, Tesla, Boston Dynamics, NVIDIA, and more. With over 120K followers on Instagram, 110K on LinkedIn,  and a growing YouTube audience of 18K subscribers, we’re building the biggest tech podcast in Africa to inspire, educate, and connect innovators.",
+    "type": "web",
+    "status": "ongoing",
+    "technologies": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwindcss",
+      "Zustand",
+      "Firebase",
+      "Figma",
+      "zod",
+      "vercel"
+    ],
+    "features": [
+      "Podcast episodes with industry leaders",
+      "Educational content on robotics, AI, and aerospace",
+      "Community engagement through social media",
+      "Social media and podcasting services for CEOs/influencers",
+      "E-books and hardware kits for hands-on learning",
+      "Secure payment gateway with paystack",
+      "Robust admin dashboard for content management"
+    ],
+    "client": "Joshua Olaiya",
+    "developers": [
+      {
+        "name": "Charles Obiora",
+        "role": "Fullstack Developer",
+        "github": "https://github.com/Charles77k",
+        "linkedin": "www.linkedin.com/in/charles-obiora"
+      },
+      {
+        "name": "Bekwa Undie",
+        "role": "UI/UX Designer",
+        "linkedin": "https://www.linkedin.com/in/bekwaundie/"
+      }
+    ],
+    "stackDetails": {
+      "frontend": ["React", "TypeScript", "Next.js", "Tailwindcss", "Zustand"],
+      "backend": ["Firebase"],
+      "design": ["Figma"]
+    }
+  },
+  {
+    "title": "Green Potentia",
+    "subtitle": "Affordable Solar Energy for Nigeria",
+    "images": [
+      "../public/px.png",
+      "../public/px1.png",
+      "../public/px2.png",
+      "../public/px3.png",
+      "../public/px4.png"
+    ],
+    "shortDescription": "Green Potentia is a Nigerian renewable energy company on a mission to end power instability by delivering affordable, accessible, and reliable solar energy solutions to homes and businesses.",
+    "longDescription": "Green Potentia is driving the renewable energy revolution in Nigeria with a bold vision: to eliminate power instability through affordable and accessible solar energy. More than just a provider of solar products, Green Potentia is building a movement centered around energy education, practical technology, and community empowerment. By combining innovation with sustainability, they empower households, businesses, and communities to achieve energy independence, reduce costs, and contribute to a cleaner, greener future for Africa.",
+    "link": "https://greenpotentia.com",
+    "type": "web",
+    "category": "Renewable Energy",
+    "status": "completed",
+    "technologies": [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "MongoDB",
+      "Tailwind CSS",
+      "Styled Components",
+      "motion",
+      "Figma"
+    ],
+    "features": [
+      "Comprehensive product catalog for solar generators",
+      "Detailed product pages with specifications, warranty, and reviews",
+      "Customer reviews and community testimonials",
+      "Newsletter subscription for updates and exclusive discounts",
+      "Mobile-friendly, fast, and optimized for low-data browsing"
+    ],
+    "client": "Green Potentia Ltd.",
+    "developers": [
+      {
+        "name": "Charles Obiora",
+        "role": "Fullstack Developer",
+        "github": "https://github.com/Charles77k",
+        "linkedin": "www.linkedin.com/in/charles-obiora"
+      },
+      {
+        "name": "Bekwa Undie",
+        "role": "UI/UX Designer",
+        "linkedin": "https://www.linkedin.com/in/bekwaundie/"
+      }
+    ],
+    "stackDetails": {
+      "frontend": [
+        "Next.js",
+        "TypeScript",
+        "Styled Components",
+        "motion",
+        "Tailwind CSS"
+      ],
+      "backend": ["Node.js", "Express"],
+      "database": ["MongoDB"]
+    }
+  },
+  {
+    "title": "Liquiseife",
+    "subtitle": "A modern lifestyle e-commerce platform",
+    "images": [
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738609204/projects/1738609204110-Screenshot%20%2825%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738609204/projects/1738609204123-Screenshot%20%2826%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738609204/projects/1738609204126-Screenshot%20%2827%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738609204/projects/1738609204128-Screenshot%20%2828%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738609204/projects/1738609204129-Screenshot%20%2829%29.png"
+    ],
+    "shortDescription": "Liquiseife is a sleek online store offering premium lifestyle products with an easy-to-use cart and secure checkout system.",
+    "longDescription": "Liquiseife is a modern online store that provides a smooth way to purchase lifestyle goods. Customers can easily browse a curated selection of premium items, add their favourites to a customizable cart, and make secure payments. Designed with simplicity, speed, and reliability in mind, Liquiseife makes online shopping effortless and enjoyable with its clean UI, responsive design, and seamless checkout process.",
+    "git": "https://github.com/Charles77K/Liquiseife",
+    "link": "https://liquiseife.com/",
+    "type": "web",
+    "category": "E-commerce",
+    "status": "ongoing",
+    "technologies": ["React", "JavaScript", "Django", "MySQL", "Redux", "CSS"],
+    "features": [
+      "Curated catalog of lifestyle products",
+      "User-friendly shopping cart and checkout process",
+      "Secure payments with multiple payment options",
+      "Responsive design for mobile and desktop",
+      "Integration of Redux for state management",
+      "Scalable backend with Django and MySQL"
+    ],
+    "client": "Liquiseife Team",
+    "developers": [
+      {
+        "name": "Charles Obiora",
+        "role": "Frontend Developer",
+        "github": "https://github.com/Charles77K",
+        "linkedin": "www.linkedin.com/in/charles-obiora"
+      },
+      {
+        "name": "Ogbe Somto",
+        "role": "Backend Developer",
+        "github": "https://github.com/somtoval",
+        "linkedin": "https://www.linkedin.com/in/somto-ogbe/"
+      }
+    ],
+    "stackDetails": {
+      "frontend": ["React", "Redux", "JavaScript", "CSS", "JavaScript"],
+      "backend": ["Django"],
+      "database": ["MySQL"]
+    }
+  },
+  {
+    "title": "HelixPress",
+    "subtitle": "A dynamic journal and publishing platform",
+    "images": [
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606339/projects/1738606339072-Screenshot%20%2830%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606339/projects/1738606339074-Screenshot%20%2831%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606339/projects/1738606339076-Screenshot%20%2832%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606339/projects/1738606339078-Screenshot%20%2833%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606339/projects/1738606339080-Screenshot%20%2834%29.png"
+    ],
+    "shortDescription": "HelixPress is a journal and publishing website where users can read, publish, and manage academic journals and articles with ease.",
+    "longDescription": "HelixPress is a dynamic online journal platform that provides access to high-quality journals, articles, and news for academics, researchers, and enthusiasts. Users can browse publications across multiple fields, stay updated with the latest research, and submit their own work for peer review and publication. The platform includes a streamlined submission process, supports collaboration among authors, and offers a strong admin dashboard for managing users, journals, submissions, and content with full CRUD operations. HelixPress redefines how knowledge is published, accessed, and managed in the digital age.",
+    "git": "https://github.com/Charles77K/helixpress",
+    "link": "https://helixpress.onrender.com/",
+    "type": "web",
+    "category": "Publishing",
+    "status": "ongoing",
+    "technologies": ["React", "Django", "MySQL", "Redux", "Tailwind CSS"],
+    "features": [
+      "Wide range of journals, articles, and news across fields",
+      "User-friendly interface for browsing and reading publications",
+      "Simplified submission process for authors",
+      "Collaboration tools for showcasing research work",
+      "Admin dashboard with full CRUD operations",
+      "Content management for journals, users, and submissions",
+      "Responsive design for accessibility on all devices"
+    ],
+    "client": "HelixPress Team",
+    "developers": [
+      {
+        "name": "Charles Obiora",
+        "role": "Frontend Developer",
+        "github": "https://github.com/Charles77K",
+        "linkedin": "www.linkedin.com/in/charles-obiora"
+      },
+      {
+        "name": "Ogbe Somto",
+        "role": "Backend Developer",
+        "github": "https://github.com/somtoval",
+        "linkedin": "https://www.linkedin.com/in/somto-ogbe/"
+      }
+    ],
+    "stackDetails": {
+      "frontend": [
+        "React",
+        "JavaScript",
+        "Redux",
+        "Tailwind CSS",
+        "TanStack Query"
+      ],
+      "backend": ["Django"],
+      "database": ["MySQL"]
+    }
+  },
+  {
+    "title": "DineSphere",
+    "subtitle": "A multi-vendor dining and food discovery app",
+    "images": [
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738435553/projects/1738435548266-Simulator%20Screenshot%20-%20iPhone%2013%20-%202025-02-01%20at%2016.57.59.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738435553/projects/1738435548270-Simulator%20Screenshot%20-%20iPhone%2013%20-%202025-02-01%20at%2016.58.07.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738435550/projects/1738435548272-Simulator%20Screenshot%20-%20iPhone%2013%20-%202025-02-01%20at%2016.58.13.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738435552/projects/1738435548273-Simulator%20Screenshot%20-%20iPhone%2013%20-%202025-02-01%20at%2016.58.28.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738435550/projects/1738435548275-Simulator%20Screenshot%20-%20iPhone%2013%20-%202025-02-01%20at%2016.59.25.png"
+    ],
+    "shortDescription": "DineSphere is a multi-vendor mobile app that helps food lovers explore restaurants, menus, and connect with a foodie community.",
+    "longDescription": "DineSphere is a modern multi-vendor mobile application designed to connect foodies with a wide variety of restaurants and eateries. Users can browse through extensive menus, discover local and international cuisines, and rate or review their dining experiences. With features like community chat, personalized recommendations, and an intuitive interface, DineSphere enhances how customers discover, engage with, and enjoy their favorite restaurants. It’s more than just a food app — it’s a social dining experience that builds community and supports vendors.",
+    "git": "https://github.com/Charles77K/DIneSphere",
+    "link": "pending",
+    "type": "mobile",
+    "category": "Food & Dining",
+    "status": "completed",
+    "technologies": [
+      "React Native",
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Redux"
+    ],
+    "features": [
+      "Multi-vendor marketplace for restaurants and eateries",
+      "Extensive menus with detailed food listings",
+      "Restaurant ratings and user reviews",
+      "Community chat for sharing dining experiences",
+      "Personalized restaurant recommendations",
+      "Seamless order browsing and user-friendly design",
+      "Cross-platform mobile support"
+    ],
+    "client": "DineSphere Team",
+    "developers": [
+      {
+        "name": "Charles Obiora",
+        "role": "Fullstack Developer",
+        "github": "https://github.com/Charles77K",
+        "linkedin": "www.linkedin.com/in/charles-obiora"
+      }
+    ],
+    "stackDetails": {
+      "frontend": ["React Native", "JavaScript", "Redux"],
+      "backend": ["Node.js", "Express.js"],
+      "database": ["MongoDB"]
+    }
+  },
+  {
+    "_id": "67992d3699c86acc338311ae",
+    "title": "CBT-System",
+    "subtitle": "An online examination and assessment platform",
+    "images": [
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606856/projects/1738606856340-Screenshot%20%2835%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606856/projects/1738606856348-Screenshot%20%2836%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606856/projects/1738606856354-Screenshot%20%2838%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606856/projects/1738606856356-Screenshot%20%2839%29.png",
+      "https://res.cloudinary.com/djmbpency/image/upload/v1738606856/projects/1738606856358-Screenshot%20%2840%29.png"
+    ],
+    "shortDescription": "CBT-System is a scalable e-exam platform that enables organizations and students to conduct, manage, and grade online tests with ease.",
+    "longDescription": "CBT-System is an advanced e-exam platform designed to simplify online testing for students, institutions, and organizations. It provides features like secure account creation, timed and objective-based assessments, automated grading, real-time progress tracking, and detailed result reporting. With a robust admin dashboard, administrators can manage exams, users, results, and schedules with full CRUD functionality. Built for performance and scalability, CBT-System is ideal for schools, training centers, and enterprises looking to digitize and streamline their examination process.",
+    "git": "https://github.com/Charles77K/CBT-System",
+    "link": "pending",
+    "type": "web",
+    "category": "Education & Assessment",
+    "status": "ongoing",
+    "technologies": [
+      "React",
+      "Django",
+      "Tailwind CSS",
+      "TanStack Query",
+      "MySQL",
+      "Redux"
+    ],
+    "features": [
+      "User registration and secure login",
+      "Timed and objective-based online exams",
+      "Automatic grading and instant results",
+      "Exam scheduling with flexible settings",
+      "Real-time progress tracking for candidates",
+      "Detailed reports and analytics for administrators",
+      "Robust admin dashboard with full CRUD functionality",
+      "Scalable architecture for institutions and businesses"
+    ],
+    "client": "Educational Institutions & Training Centers",
+    "developers": [
+      {
+        "name": "Charles Obiora",
+        "role": "Fullstack Developer",
+        "github": "https://github.com/Charles77K",
+        "linkedin": "www.linkedin.com/in/charles-obiora"
+      }
+    ],
+    "stackDetails": {
+      "frontend": [
+        "React",
+        "JavaScript",
+        "Tailwind CSS",
+        "Redux",
+        "TanStack Query"
+      ],
+      "backend": ["Express", "Node.js"],
+      "database": ["MongoDB"]
+    }
+  }
+]

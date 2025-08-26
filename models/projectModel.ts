@@ -1,42 +1,89 @@
 import { Schema, model, Document } from "mongoose";
 
-interface ProjectType extends Document {
-  title: string;
-  images: string[];
-  description: string;
-  git: string;
-  link: string;
-  type: "mobile" | "web";
-  developers: {
-    name: string;
-    github: string;
-    stack: string[];
-    email: string;
-    link: string;
-    role: string;
-  }[];
-  createdAt: Date;
+interface Developer {
+  name: string;
+  github?: string;
+  linkedin?: string;
+  role: string;
 }
 
-const ProjectSchema = new Schema({
-  title: { type: String, required: true },
-  images: [{ type: String }],
-  description: { type: String, required: true },
-  git: { type: String, required: true },
-  link: { type: String },
-  type: { type: String },
-  developers: [
-    {
-      name: { type: String, required: true },
-      github: { type: String, required: true },
-      stack: [{ type: String }],
-      email: { type: String, required: true },
-      link: { type: String, required: true },
-      role: { type: String, required: true },
-    },
-  ],
-  createdAt: { type: Date, default: Date.now },
+export interface ProjectType extends Document {
+  title: string;
+  subtitle?: string;
+  images: string[];
+  shortDescription: string;
+  longDescription: string;
+  git?: string;
+  link?: string;
+  type: "mobile" | "web" | "desktop" | "api";
+  category?: string;
+  status: "ongoing" | "completed" | "upcoming";
+  technologies: string[];
+  features: string[];
+  client?: string;
+  developers: Developer[];
+  testimonials?: {
+    name: string;
+    feedback: string;
+    role?: string;
+  }[];
+  stackDetails?: {
+    frontend?: string[];
+    backend?: string[];
+    database?: string[];
+    devops?: string[];
+  };
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const DeveloperSchema = new Schema<Developer>({
+  name: { type: String, required: true },
+  github: { type: String },
+  linkedin: { type: String },
+  role: { type: String, required: true },
 });
+
+const ProjectSchema = new Schema<ProjectType>(
+  {
+    title: { type: String, required: true },
+    subtitle: { type: String },
+    images: [{ type: String }],
+    shortDescription: { type: String, required: true },
+    longDescription: { type: String, required: true },
+    git: { type: String },
+    link: { type: String },
+    type: {
+      type: String,
+      enum: ["mobile", "web", "desktop", "api"],
+      required: true,
+    },
+    category: { type: String },
+    status: {
+      type: String,
+      enum: ["ongoing", "completed", "upcoming"],
+      default: "completed",
+    },
+    technologies: [{ type: String }],
+    features: [{ type: String }],
+    developers: [DeveloperSchema],
+    testimonials: [
+      {
+        name: { type: String },
+        feedback: { type: String },
+        role: { type: String },
+      },
+    ],
+    stackDetails: {
+      frontend: [{ type: String }],
+      backend: [{ type: String }],
+      database: [{ type: String }],
+      devops: [{ type: String }],
+    },
+  },
+  { timestamps: true } // auto adds createdAt & updatedAt
+);
+
 const Project = model<ProjectType>("Project", ProjectSchema);
 
 export default Project;
