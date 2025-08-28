@@ -52,6 +52,7 @@ const ProjectSchema = new Schema<ProjectType>(
     shortDescription: { type: String, required: true },
     longDescription: { type: String, required: true },
     git: { type: String },
+    client: { type: String },
     link: { type: String },
     type: {
       type: String,
